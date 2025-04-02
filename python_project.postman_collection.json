@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "80bf69a4-fb11-4600-91d5-4bd06ff40cac",
+		"name": "python_project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31069711"
+	},
+	"item": [
+		{
+			"name": "Rejester",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"Adel\",\r\n    \"last_name\": \"Ramadan\",\r\n    \"email\": \"adel@gmail.com\",\r\n    \"username\": \"adel_Ramadan_saber\",\r\n    \"password\": \"123456\",\r\n    \"password2\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"adel_Ramadan\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all_users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzNTU4NzY2LCJpYXQiOjE3NDM1NTg0NjYsImp0aSI6IjQ2ZWQ2ZTQ1OWU5MDRjYjZhNTE1NDRhNzc3MTQwZjEzIiwidXNlcl9pZCI6M30.ckBEnuauviJXqYUp5wMJKWXWieGmvXkk6keLdRluSc8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"adell Fundraiser\",\r\n    \"details\": \"We need funds for a new school.\",\r\n    \"total_target\": 20000,\r\n    \"start_date\": \"2025-04-10T00:00:00Z\",\r\n    \"end_date\": \"2025-05-10T00:00:00Z\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/projects/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"projects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_all_projects",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzNTU4NzY2LCJpYXQiOjE3NDM1NTg0NjYsImp0aSI6IjQ2ZWQ2ZTQ1OWU5MDRjYjZhNTE1NDRhNzc3MTQwZjEzIiwidXNlcl9pZCI6M30.ckBEnuauviJXqYUp5wMJKWXWieGmvXkk6keLdRluSc8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/projects/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"projects",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQzNTU5MjUzLCJpYXQiOjE3NDM1NTg5NTMsImp0aSI6IjNjZGE2ZGIyY2E5NzQ3MjE4MThlMjNkMDY5MDI0YzZlIiwidXNlcl9pZCI6M30.RCyckLgtIdjmKhMjoa9uwqPltvJjTtbGFODc9EPuWwg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Updated Project Title\",\r\n    \"details\": \"Updated project details\",\r\n    \"total_target\": 600000,\r\n    \"start_date\": \"2025-04-10T00:00:00Z\",\r\n    \"end_date\": \"2025-06-01T00:00:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/projects/1/\n",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"projects",
+						"1",
+						"\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_projects",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/projects/2/\n",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"projects",
+						"2",
+						"\n"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
