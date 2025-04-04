@@ -98,6 +98,10 @@ body {
     font-weight: 700;
     margin-bottom: 15px;
     font-size: 1.3rem;
+    color: #6f1019;
+
+
+    /* text-align: center; */
   }
   
   .projectTarget {
@@ -178,3 +182,62 @@ body {
     align-items: center;
     justify-content: center
   }
+ 
+  /* icons */
+  .actionButtons {
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .iconCircle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .iconCircle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(24, 90, 157, 0.3);
+  }
+  
+  .iconButton {
+    color: #555;
+    margin-left: 10px;
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .iconButton:hover {
+    color: #007bff;
+  }
+  
+  .iconButton[title="Delete"]:hover {
+    color: #dc3545; 
+  }
+  
+  .iconButton[title="Donate"]:hover {
+    color: #28a745; 
+  }
+  
+  .iconButton[title="Edit"]:hover {
+    color: #ffc107; 
+  }
+  
+  .iconButton[title="Details"]:hover {
+    color: #0d6efd;
+  }
+  

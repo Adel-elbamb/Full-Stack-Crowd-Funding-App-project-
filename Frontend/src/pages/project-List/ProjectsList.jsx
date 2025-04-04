@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import projectImage from '/src/assets/2.jpeg';
+import { useNavigate } from "react-router-dom";
 // font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faMoneyBillWave,  faFire,faClock } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faHandHoldingUsd,faEye,faMoneyBillWave,  faFire,faClock,faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+
 // css style 
 import styles from '../project-List/ProjectList.module.css'
 // dicoverd section 
@@ -17,7 +19,20 @@ const ProjectsList = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filteredProjects, setFilteredProjects] = useState([]); 
-    const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+
+    const handleDonate = (projectId) => {
+      const confirmDonate = window.confirm("Are you Know need to Donate ");
+    
+      if (confirmDonate) {
+        navigate(`/project/${projectId}/Thank`);
+      } else {
+        alert("Donate canceled Done");
+      }
+    };
+  
   
   // const [searchDate, setSearchDate] = useState("");
 
@@ -128,24 +143,33 @@ const ProjectsList = () => {
                   
                     
                     <div className={styles.actionButtons}>
+                    <button
+  onClick={() => handleDonate(projects.id)}
+  className={styles.iconCircle}
+  title="Donate"
+>
+  <FontAwesomeIcon icon={faHandHoldingUsd} />
+</button>
                       <Link 
                        to={`/projects/${projects.id}`}
-                        className={styles.btnDetails} 
+                        className={styles.iconCircle} 
                       >
-                        Details
+                         <FontAwesomeIcon icon={faEye} />
                       </Link>
                       <Link 
                         to={`/project/${projects.id}/edit`} 
-                        className={styles.btnUpdate}
+                        className={styles.iconCircle}
                       >
-                        Update
+                        <FontAwesomeIcon icon={faEdit} />
                       </Link>
                       <Link 
                         to={`/project/${projects.id}/delete`} 
-                        className={styles.btnDelete}
+                        className={styles.iconCircle}
                       >
-                        Delete
+                        <FontAwesomeIcon icon={faTrashAlt} />
                       </Link>
+
+
                     </div>
                   </div>
                 </div>

@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import ThankYouPage from './pages/Thank/ThankYouPag';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
       {/* <Route path="/projects" element={<Projects />} /> */}
 
       <Route path="/projects/:id" element={<ProjectDetails />} />
+      <Route path="/project/:id/Thank" element={<ThankYouPage />} />
+
       <Route path="*" element={<NotFound />} />
       {/* <Route path="/projects" element={<ProjectDetails />} /> */}
 
