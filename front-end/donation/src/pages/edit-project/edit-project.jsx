@@ -14,10 +14,20 @@ const EditProject = () => {
     end_date: "",
   });
 
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    return dateString.split("T")[0];
+  };
+
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/projects/${id}/`)
       .then(response => {
-        setProjectData(response.data);
+        const project = response.data;
+        setProjectData({
+          ...project,
+          start_date: formatDate(project.start_date),
+          end_date: formatDate(project.end_date),
+        });
       })
       .catch(error => {
         console.error("Error fetching project data:", error);
@@ -30,25 +40,35 @@ const EditProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    const token = localStorage.getItem("token");
+  
+    if (!token) {
+      alert("User not authenticated. Please log in again.");
+      navigate("/login");
+      return;
+    }
+  
     try {
       await axios.put(`http://127.0.0.1:8000/api/projects/${id}/`, projectData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
-      alert("Project updated successfully!");
+      alert("Project updated successfully");
       navigate("/");
     } catch (error) {
       console.error("Error updating project:", error);
-      alert("Failed to update project");
+      alert("Failed to update project.");
     }
   };
+  
 
   return (
     <div className="edit-project-container">
       <div className="edit-project-card">
         <div className="left-section">
-          <h2>Welcome Back!</h2>
+          <h2>Welcome Back</h2>
           <p>To update your project details, please fill in the form.</p>
         </div>
         <div className="right-section">
