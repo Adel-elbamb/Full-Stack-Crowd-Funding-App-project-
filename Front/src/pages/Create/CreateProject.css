@@ -1,0 +1,75 @@
+.page-bg {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    /* background: #e0e0e0; */
+
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    backdrop-filter: blur(10px);
+  }
+  
+  .title {
+    font-weight: 700;
+    color: #3749b3;
+  }
+  
+  .form-label-custom {
+    font-weight: 600;
+    color: #3749b3;
+  }
+  
+  .form-control-custom {
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #ccd5ff;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control-custom:focus {
+    border-color: #536dfe;
+    box-shadow: 0 0 0 0.25rem rgba(83, 109, 254, 0.25);
+  }
+  
+  .btn-glow {
+    background: linear-gradient(to right, #536dfe, #7c4dff);
+    /* background: #e0e0e0; */
+
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #fff;
+    padding: 12px;
+  }
+  
+  .btn-glow:hover {
+    background: linear-gradient(to right, #7c4dff, #536dfe);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(124, 77, 255, 0.2);
+  }
+  
+  .fade-in {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
