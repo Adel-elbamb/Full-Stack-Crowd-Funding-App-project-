@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
+import styles from "./Login.module.css";
 
 function Login() {
     const [formData, setFormData] = useState({ username: "", password: "" });
@@ -15,7 +15,6 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
-
         try {
             const response = await axios.post("http://127.0.0.1:8000/api/token/", formData);
             localStorage.setItem("token", response.data.access);
@@ -27,22 +26,44 @@ function Login() {
     };
 
     return (
-        <div className="container d-flex justify-content-center align-items-center vh-100">
-            <div className="card p-4 shadow-lg" style={{ width: "400px" }}>
-                <h2 className="text-center mb-3">Login</h2>
-                
-                {error && <div className="alert alert-danger">{error}</div>}
-                
-                <form onSubmit={handleSubmit}>
-                    <input type="text" className="form-control mb-2" name="username" placeholder="Username" onChange={handleChange} required />
-                    <input type="password" className="form-control mb-3" name="password" placeholder="Password" onChange={handleChange} required />
-                    
-                    <button type="submit" className="btn btn-success w-100">Login</button>
-                </form>
-
-                <p className="text-center mt-3">
-                    Don't have an account? <a href="/register">Register</a>
-                </p>
+        <div className={styles.pageWrapper}>
+            <div className={styles.card}>
+                <div className={styles.left}>
+                    <h2>Welcome back!</h2>
+                    <p>You can sign in to access with your existing account.</p>
+                </div>
+                <div className={styles.right}>
+                    <h3>Sign In</h3>
+                    {error && <div className={styles.errorMsg}>{error}</div>}
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Username or email"
+                            onChange={handleChange}
+                            required
+                            className={styles.input}
+                        />
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            onChange={handleChange}
+                            required
+                            className={styles.input}
+                        />
+                        <div className={styles.formOptions}>
+                            {/* <label>
+                                <input type="checkbox" /> Remember me
+                            </label> */}
+                            <a href="/forgot-password">Forgot password?</a>
+                        </div>
+                        <button type="submit" className={styles.signInButton}>Sign In</button>
+                    </form>
+                    <p className={styles.createAccount}>
+                        New here? <a href="/register">Create an Account!</a>
+                    </p>
+                </div>
             </div>
         </div>
     );

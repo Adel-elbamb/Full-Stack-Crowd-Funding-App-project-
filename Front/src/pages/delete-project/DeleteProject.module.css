@@ -1,0 +1,74 @@
+.deleteProjectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.deleteProjectCard {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.deleteProjectCard h2 {
+  color: #d9534f;
+  margin-bottom: 10px;
+}
+
+.deleteProjectCard p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin-right: 2px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #c9302c;
+  transform: scale(1.05);
+}
+
+.cancelBtn {
+  margin-left: 10px;
+  background: #5bc0de;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cancelBtn:hover {
+  background: #31b0d5;
+  transform: scale(1.05);
+}

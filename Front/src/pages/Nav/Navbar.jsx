@@ -1,21 +1,23 @@
 import React from "react";
+import styles from './Navbar.module.css'; // Import the CSS module
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo1.jpeg";
+
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const isAuthenticated = localStorage.getItem("token"); 
-  
+  const isAuthenticated = localStorage.getItem("token");
+
   const handleLogout = () => {
-    localStorage.removeItem("token"); 
-    navigate("/login"); 
+    localStorage.removeItem("token");
+    navigate("/login");
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <nav className={`navbar navbar-expand-lg navbar-light ${styles.navbar}`}>
       <div className="container">
         {/* Left: Logo */}
-        <Link to="/" className="navbar-brand d-flex align-items-center">
+        <Link to="/" className={`${styles.navbarBrand} navbar-brand d-flex align-items-center`}>
           <img src={logo} alt="Logo" height="40" className="me-2" />
           <strong>Chuffed</strong>
         </Link>
@@ -24,19 +26,19 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-center">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className={`${styles.navLinks} nav-link`} to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/project">Donations</Link>
+              <Link className={`${styles.navLinks} nav-link`} to="/project">Donations</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/create">Create Project</Link>
+              <Link className={`${styles.navLinks} nav-link`} to="/create">Create Project</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
+              <Link className={`${styles.navLinks} nav-link`} to="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact">Contact</Link>
+              <Link className={`${styles.navLinks} nav-link`} to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
@@ -45,8 +47,8 @@ const Navbar = () => {
         <div className="d-flex align-items-center">
           {isAuthenticated ? (
             <>
-              <Link className="nav-link me-3" to="/profile">Edit Profile</Link>
-              <button className="btn btn-link nav-link" onClick={handleLogout}>
+              <Link className="nav-link me-3" to="/profile">Profile</Link>
+              <button className={`${styles.btnLink} btn btn-link nav-link`} onClick={handleLogout}>
                 Logout
               </button>
             </>

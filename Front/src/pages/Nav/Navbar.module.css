@@ -1,0 +1,59 @@
+/* General Navbar Styling */
+.navbar {
+    background-color: #ffffff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .navlinks {
+    font-weight: bold;
+    font-size: 200px;
+    color: #555555;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .navbar .nav-link:hover {
+    color: #094178;
+    transform: scale(1.1);
+  }
+  
+  .navbar .navbar-brand {
+    font-weight: bold;
+    color: #185a9d;
+  }
+  
+  .navbar .navbar-brand:hover {
+    color: #0d3c74;
+  }
+  
+  .navbar .btn-link {
+    color: #ffffff;
+    background-color: #185a9d;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar .btn-link:hover {
+    background-color: #0d3c74;
+    transform: scale(1.05);
+  }
+  
+  .user-icon {
+    color: #555555;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar .navbar-nav {
+      text-align: center;
+    }
+    .navbar .navbar-collapse {
+      margin-top: 15px;
+    }
+  }
+  

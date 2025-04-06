@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./edit-project.css";
+import styles from "./EditProject.module.css";
 
 const EditProject = () => {
   const { id } = useParams();
@@ -20,7 +20,7 @@ const EditProject = () => {
   };
 
   useEffect(() => {
-    axios.get(`http:127.0.0.1:8000/api/projects/${id}/`)
+    axios.get(`http://127.0.0.1:8000/api/projects/${id}/`)
       .then(response => {
         const project = response.data;
         setProjectData({
@@ -40,19 +40,19 @@ const EditProject = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const token = localStorage.getItem("token");
-  
+
     if (!token) {
       alert("User not authenticated. Please log in again.");
       navigate("/login");
       return;
     }
-  
+
     try {
       await axios.put(`http://127.0.0.1:8000/api/projects/${id}/`, projectData, {
         headers: {
-          Authorization:  `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       alert("Project updated successfully!");
@@ -63,17 +63,16 @@ const EditProject = () => {
     }
   };
 
-
   return (
-    <div className="edit-project-container">
-      <div className="edit-project-card">
-        <div className="left-section">
+    <div className={styles.editProjectContainer}>
+      <div className={styles.editProjectCard}>
+        <div className={styles.leftSection}>
           <h2>Welcome Back!</h2>
           <p>To update your project details, please fill in the form.</p>
         </div>
-        <div className="right-section">
+        <div className={styles.rightSection}>
           <h2>Edit Project</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <input type="text" name="title" placeholder="Project Title" value={projectData.title} onChange={handleChange} required />
             <textarea name="details" placeholder="Project Details" value={projectData.details} onChange={handleChange} required></textarea>
             <input type="number" name="total_target" placeholder="Total Target" value={projectData.total_target} onChange={handleChange} required />

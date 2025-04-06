@@ -35,29 +35,7 @@ class UserListView(APIView):
 # =========================================================================== 
 
 # ====================projects view funcation===============
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Project.objects.all()
-#     serializer_class = ProjectSerializer
-#     # permission_classes = [permissions.IsAuthenticated]
-#     permission_classes = [permissions.AllowAny]
 
-#     def perform_create(self, serializer):
-#         serializer.save(owner=self.request.user)
-
-   
-# from rest_framework import viewsets, permissions
-# from .models import Project
-# from .serializers import ProjectSerializer
-
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Project.objects.all()
-#     serializer_class = ProjectSerializer
-#     permission_classes = [permissions.AllowAny]  # 🔹 Now allows anyone to access
-
-#     def perform_create(self, serializer):
-#         serializer.save()  # 🔹 Remove self.request.user to allow anonymous creation  
-   
-   
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
@@ -70,26 +48,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-
-
-
-
-
-
-
-
-# from rest_framework import viewsets, permissions
-# from .models import Project
-# from .serializers import ProjectSerializer
-
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Project.objects.all()
-#     serializer_class = ProjectSerializer
-#     permission_classes = [permissions.AllowAny]  # ✅ Allow all actions without authentication
-
-#     def perform_create(self, serializer):
-#         # You might want to set the owner to None or handle it differently if unauthenticated
-#         serializer.save()
 
    
    

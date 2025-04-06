@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -99,7 +98,7 @@ const ProjectsList = () => {
  
 
   return (
-    <div className={`container ${styles.container}`}>
+    <div className={`container md-4 ${styles.container}`}>
       <DiscoverHeader  projects={projects} 
   setFilteredProjects={setFilteredProjects}/>
       {loading ? (

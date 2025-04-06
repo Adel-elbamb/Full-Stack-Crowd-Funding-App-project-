@@ -1,0 +1,53 @@
+.backgroundSlider {
+  position: relative;
+  height: 100vh; /* Full-screen height */
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.homeTitle {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.homeSubtitle {
+  font-size: 1.5rem;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.dot:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+}

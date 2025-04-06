@@ -2,7 +2,7 @@ import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Container, Row, Col, Alert, Card } from "react-bootstrap";
 import axios from "axios";
-import "./CreateProject.css";
+import styles from './CreateProject.module.css';
 
 const CreateProject = () => {
   const [project, setProject] = useState({
@@ -59,12 +59,12 @@ const CreateProject = () => {
   };
 
   return (
-    <div className="page-bg fade-in">
+    <div className={`${styles.pageBg} ${styles.fadeIn}`}>
       <Container>
         <Row className="justify-content-center">
           <Col md={10} lg={8}>
-            <Card className="glass-card p-5">
-              <h2 className="text-center mb-4 title">Launch Your Project</h2>
+            <Card className={`${styles.glassCard} p-5`}>
+              <h2 className={`text-center mb-4 ${styles.title}`}>Launch Your Project</h2>
 
               {successMessage && <Alert variant="success">{successMessage}</Alert>}
               {apiError && <Alert variant="danger">{apiError}</Alert>}
@@ -77,8 +77,12 @@ const CreateProject = () => {
                   { name: "start_date", label: "Start Date", type: "date" },
                   { name: "end_date", label: "End Date", type: "date" },
                 ].map((field, i) => (
-                  <Form.Group className="mb-3 fade-in" style={{ animationDelay: `${i * 0.1}s` }} key={field.name}>
-                    <Form.Label className="form-label-custom">{field.label}</Form.Label>
+                  <Form.Group
+                    className={`mb-3 ${styles.fadeIn}`}
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                    key={field.name}
+                  >
+                    <Form.Label className={styles.formLabelCustom}>{field.label}</Form.Label>
                     <Form.Control
                       as={field.type === "textarea" ? "textarea" : "input"}
                       rows={field.type === "textarea" ? 3 : undefined}
@@ -87,7 +91,7 @@ const CreateProject = () => {
                       value={project[field.name]}
                       onChange={handleChange}
                       isInvalid={!!errors[field.name]}
-                      className="form-control-custom"
+                      className={styles.formControlCustom}
                     />
                     <Form.Control.Feedback type="invalid">{errors[field.name]}</Form.Control.Feedback>
                   </Form.Group>
@@ -96,7 +100,7 @@ const CreateProject = () => {
                 {errors.date && <Alert variant="danger">{errors.date}</Alert>}
 
                 <div className="d-grid mt-4">
-                  <Button type="submit" className="btn-glow" size="lg">
+                  <Button type="submit" className={styles.btnGlow} size="lg">
                     Create Project
                   </Button>
                 </div>

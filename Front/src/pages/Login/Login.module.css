@@ -1,0 +1,131 @@
+.pageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background: linear-gradient(135deg, #dcd5e9, #e4d4ff); */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+    display: flex;
+    width: 850px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    /* background: linear-gradient(135deg, #6e44ff, #b892ff);
+     */
+     background: linear-gradient(135deg, #43cea2, #185a9d);
+
+    
+    color: white;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.left::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cartographer.png');
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.left h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+    position: relative;
+}
+
+.left p {
+    z-index: 1;
+    position: relative;
+}
+
+.right {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.formOptions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.formOptions a {
+    text-decoration: none;
+    color: #6e44ff;
+}
+
+.signInButton {
+    padding: 0.75rem;
+    background-color: #6e44ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.signInButton:hover {
+    background-color: #5733cc;
+}
+
+.createAccount {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.createAccount a {
+    color: #6e44ff;
+    text-decoration: none;
+}
+
+.errorMsg {
+    /* background-color: #f8d7da; */
+    color: #721c24;
+    margin-bottom: 1rem; 
+    /* padding: 0.75rem; */
+    /* border-radius: 10px;
+   
+    text-align: center;*/
+}

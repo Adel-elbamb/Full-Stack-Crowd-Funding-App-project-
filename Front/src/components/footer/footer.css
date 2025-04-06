@@ -1,0 +1,30 @@
+footer {
+    background-color: #000;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 5px;
+    line-height: 3;
+    width: 100%;
+  }
+  footer .footer-logo{
+    height: 120px;
+  }
+  footer .menu, .social{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  footer .menu a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  footer .social img{
+    width: 40px;
+  }
+  footer .text-muted{
+    margin-bottom: -20px;
+  }
